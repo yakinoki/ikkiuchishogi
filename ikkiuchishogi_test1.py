@@ -1,3 +1,5 @@
+import yaml
+
 class ShogiCls:
     def __init__(self):
         self.shogi_bit = list()
@@ -10,6 +12,12 @@ class ShogiCls:
             else:
                 self.shogi_bit.append('・')
 
+        with open('config.yml', 'r') as yml:
+            config = yaml.safe_load(yml)
+ 
+        #手番。対局開始時は先手。        
+        self.tebann = config['sennte']
+   
    
     # 盤面を表示する。
     def shogi_display(self):
@@ -19,10 +27,26 @@ class ShogiCls:
             for c in range(1,10):
                 print(" {}".format(self.shogi_bit[(l-1)*9+(c-1)]), end='')
             print()
-        
+
+
+    # 手番表示。
+    def shogi_yourturn(self):
+        if self.tebann == '王':
+            print("先手の手番です。")
+        else:
+            print("後手の手番です。")   
+            
 
 if __name__ == '__main__':
 
     taikyoku = ShogiCls()
+
+    # 盤面表示。
     taikyoku.shogi_display()
+
+    # 手番表示。
+    taikyoku.shogi_yourturn()
+
+    
+    
 
