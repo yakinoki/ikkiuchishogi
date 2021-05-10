@@ -18,7 +18,22 @@ class ShogiCls:
         #手番。対局開始時は先手。        
         self.tebann = config['sennte']
    
+
+
+
+
+    # 駒を動かす位置を入力して指定。
+    def shogi_inputXY(self,zahyou:int):
+        while True:
+            myXY = input(zahyou)
+            if myXY == "":
+                continue
+            if myXY.isdigit() and (1 <= int(myXY) <= 9): 
+                return int(myXY)
+            print("1から9までの整数を1つ入力して下さい。")
    
+
+
     # 盤面を表示する。
     def shogi_display(self):
         print("Ｘ１ ２ ３ ４ ５ ６ ７ ８ ９")
