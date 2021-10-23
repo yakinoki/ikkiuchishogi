@@ -1,4 +1,7 @@
 import yaml
+import os
+
+os.makedirs('./result_kifu',exist_ok=True)
 
 class ShogiCls:
 	def __init__(self):
