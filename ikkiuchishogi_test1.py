@@ -22,15 +22,7 @@ class ShogiCls:
 		self.tebann = config['sennte']
 
 
-	# 駒を動かす位置を入力して指定。
-	def shogi_inputXY(self,zahyou:int):
-		while True:
-			myXY = input(zahyou)
-			if myXY == "":
-				continue
-			if myXY.isdigit() and (1 <= int(myXY) <= 9): 
-				return int(myXY)
-			print("1から9までの整数を1つ入力して下さい。")
+	
    
 
 	# 盤面を表示する。
@@ -49,7 +41,21 @@ class ShogiCls:
 			print("先手の手番です。")
 		else:
 			print("後手の手番です。")   
+	
+
+	
+	# 駒を動かす位置を入力して指定。
+	def shogi_inputXY(self):
+		while True:
+			print("1から9までの整数を1つ入力して下さい。")
+			myXY = input()
+			if myXY == "":
+				continue
+			if myXY.isdigit() and (1 <= int(myXY) <= 9): 
+				return int(myXY)
 			
+			
+
 
 if __name__ == '__main__':
 
@@ -60,6 +66,9 @@ if __name__ == '__main__':
 
 	# 手番表示。
 	taikyoku.shogi_yourturn()
+
+	# どこに駒を移動させるか入力。
+	taikyoku.shogi_inputXY()
 
 	
 	
