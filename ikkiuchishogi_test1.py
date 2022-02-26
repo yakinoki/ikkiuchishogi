@@ -1,7 +1,11 @@
 import yaml
 import os
+import logging
+from logging import getLogger, StreamHandler, Formatter
 
 os.makedirs('./result_kifu',exist_ok=True)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class ShogiCls:
@@ -36,9 +40,9 @@ class ShogiCls:
 	# 手番表示。
 	def shogi_yourturn(self) -> None:
 		if self.tebann == '王':
-			print("先手の手番です。")
+			logger.info("先手の手番です。")
 		else:
-			print("後手の手番です。")   
+			logger.info("後手の手番です。")   
 	
 
 	# 手番交換。
@@ -52,7 +56,7 @@ class ShogiCls:
 	# 駒を動かす位置を入力して指定。
 	def shogi_inputXY(self)-> None:
 		while True:
-			print("1から9までの整数を1つ入力して下さい。")
+			logger.info("1から9までの整数を1つ入力して下さい。")
 			myXY = input()
 			if myXY == "":
 				continue
