@@ -1,11 +1,16 @@
 import yaml
 import os
+import logging
+from logging import getLogger, StreamHandler, Formatter
 
 os.makedirs('./result_kifu',exist_ok=True)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 class ShogiCls:
-	def __init__(self):
-		self.shogi_bit = list()
+	def __init__(self) -> None:
+		self.shogi_bit = list() 
 		# 初期設定＝盤上に王と玉を置く。
 		for i in range(81):
 			if i == 4:   
@@ -22,19 +27,8 @@ class ShogiCls:
 		self.tebann = config['sennte']
 
 
-	# 駒を動かす位置を入力して指定。
-	def shogi_inputXY(self,zahyou:int):
-		while True:
-			myXY = input(zahyou)
-			if myXY == "":
-				continue
-			if myXY.isdigit() and (1 <= int(myXY) <= 9): 
-				return int(myXY)
-			print("1から9までの整数を1つ入力して下さい。")
-   
-
 	# 盤面を表示する。
-	def shogi_display(self):
+	def shogi_display(self) -> None:
 		print("Ｘ１ ２ ３ ４ ５ ６ ７ ８ ９")
 		for l in range(1,10):
 			print("{}".format(l), end='' )
@@ -44,12 +38,34 @@ class ShogiCls:
 
 
 	# 手番表示。
-	def shogi_yourturn(self):
+	def shogi_yourturn(self) -> None:
 		if self.tebann == '王':
-			print("先手の手番です。")
+			logger.info("先手の手番です。")
 		else:
-			print("後手の手番です。")   
-			
+			logger.info("後手の手番です。")   
+	
+
+	# 手番交換。
+	def shogi_tebann_change(self) -> None:
+		if self.tebann == '王':
+			self.tebann = '玉'
+		else:
+			self.tebann = '王'
+
+
+	# 駒を動かす位置を入力して指定。
+	def shogi_inputXY(self)-> None:
+		while True:
+			logger.info("1から9までの整数を1つ入力して下さい。")
+			myXY = input()
+			if myXY == "":
+				continue
+			if myXY.isdigit() and (1 <= int(myXY) <= 9): 
+				taikyoku.shogi_tebann_change()
+				taikyoku.shogi_yourturn()
+				return int(myXY)
+
+	
 
 if __name__ == '__main__':
 
@@ -60,6 +76,9 @@ if __name__ == '__main__':
 
 	# 手番表示。
 	taikyoku.shogi_yourturn()
+
+	# どこに駒を移動させるか入力。
+	taikyoku.shogi_inputXY()
 
 	
 	
