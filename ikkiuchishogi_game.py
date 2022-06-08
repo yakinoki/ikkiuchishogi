@@ -19,7 +19,7 @@ class ShogiCls:
             else:
                 self.shogi_bit.append('・')
 
-        with open('config.yml', 'r') as yml:
+        with open('config.yml','r',encoding="utf-8") as yml:
             config = yaml.safe_load(yml)
  
         #手番。対局開始時は先手。        
