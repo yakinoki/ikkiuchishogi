@@ -75,6 +75,12 @@ class ShogiCls:
                 taikyoku.shogi_yourturn()
                 return int(myXY)
                 return True
+
+    # 合法手のリストの取得
+    def legal_actions(self)->list:
+        actions = []
+
+        return actions
     
     # 負けかどうか
     def is_lose(self)-> None:
@@ -85,6 +91,10 @@ class ShogiCls:
     # 対局終了かどうか
     def is_tsumi(self)-> None:
         return self.is_lose() 
+
+    # ランダムで行動選択
+    def random_action(taikyoku):
+        legal_actions = taikyoku.legal_actions()
 
 
 if __name__ == '__main__':
