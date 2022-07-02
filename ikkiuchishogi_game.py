@@ -108,10 +108,12 @@ if __name__ == '__main__':
     # 手番表示。
     taikyoku.shogi_yourturn()
 
+    # 対局終了までループ。
     while True:
-        
         # 対局終了時
         if taikyoku.is_tsumi():
-            # どこに駒を移動させるか入力。
-            taikyoku.shogi_inputXY()
+            break
+        
+        # どこに駒を移動させるか入力。
+        taikyoku.shogi_inputXY()
         
