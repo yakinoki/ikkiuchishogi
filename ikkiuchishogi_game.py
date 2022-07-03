@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class ShogiCls:
-    def __init__(self) -> None:
+    def __init__(self, tesuu=0) -> None:
         self.shogi_bit = list() 
         # 初期設定＝盤上に王と玉を置く。
         for i in range(81):
@@ -18,6 +18,7 @@ class ShogiCls:
                 self.shogi_bit.append('王')
             else:
                 self.shogi_bit.append('・')
+        self.tesuu = tesuu
 
         with open('config.yml','r',encoding="utf-8") as yml:
             config = yaml.safe_load(yml)
@@ -107,10 +108,12 @@ if __name__ == '__main__':
     # 手番表示。
     taikyoku.shogi_yourturn()
 
+    # 対局終了までループ。
     while True:
-        
         # 対局終了時
         if taikyoku.is_tsumi():
-            # どこに駒を移動させるか入力。
-            taikyoku.shogi_inputXY()
+            break
+        
+        # どこに駒を移動させるか入力。
+        taikyoku.shogi_inputXY()
         
