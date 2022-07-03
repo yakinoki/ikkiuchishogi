@@ -93,9 +93,13 @@ class ShogiCls:
     def is_tsumi(self)-> None:
         return self.is_lose() 
 
-    # ランダムで行動選択
-    def random_action(taikyoku):
-        legal_actions = taikyoku.legal_actions()
+    # 次の局面の取得
+    def next(self, action)-> None:
+        return 
+
+# ランダムで行動選択
+def random_action(taikyoku):
+    legal_actions = taikyoku.legal_actions()
 
 
 if __name__ == '__main__':
