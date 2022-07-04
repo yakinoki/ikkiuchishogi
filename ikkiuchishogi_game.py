@@ -95,6 +95,11 @@ class ShogiCls:
 
     # 次の局面の取得
     def next(self, action)-> None:
+        # 次の状態の作成
+        taikyoku = ShogiCls(self.depth+1)
+
+        #駒の移動
+        
         return 
 
 # ランダムで行動選択
