@@ -56,6 +56,7 @@ class ShogiCls:
             if self.tebann == '王':
                 for i in range(1,80):
                     if self.shogi_bit[i] == '王':
+                        #現在の王の位置を記録。
                         self.ou = i
                         break
                     else:
@@ -95,6 +96,7 @@ class ShogiCls:
             else:
                 for i in range(1,80):
                     if self.shogi_bit[i] == '玉':
+                        #現在の玉の位置を記録。
                         self.gyoku = i
                         break
                     else:
@@ -130,12 +132,6 @@ class ShogiCls:
                     taikyoku.shogi_yourturn()
                     return int(myXY)
                     return True
-
-   
-
-
-
-
 
 
 if __name__ == '__main__':
