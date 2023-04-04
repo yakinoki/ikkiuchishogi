@@ -8,6 +8,7 @@ if __name__ == '__main__':
     taikyoku.shogi_display()
     # 手番表示。
     taikyoku.shogi_yourturn()
+    
     # 対局終了までループ。
     while True:
         # 対局が終わったか判断する
