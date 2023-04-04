@@ -35,7 +35,7 @@ class ShogiCls:
     def shogi_tebann_change(self):
         self.tebann = "玉" if self.tebann == "王" else "王"
     
-    # 駒を動かす位置を入力して指定。
+    # 駒を動かす位置を入力して指定。その後相手がランダムで打ち返して来る。
     def shogi_inputXY(self)-> None:
         myXY = input()
         while True:
@@ -62,7 +62,7 @@ class ShogiCls:
                         break
                     else:
                         i = i + 1
-                logger.info("縦横方向の移動を指定するために1から9までの整数を1つ入力して下さい。")
+                logger.info("縦方向の移動を指定するために1から9までの整数を1つ入力して下さい。")
                 myXY = input()
                 if not myXY:
                     continue
@@ -94,7 +94,7 @@ class ShogiCls:
                         break
                     else:
                         i = i + 1
-                logger.info("縦横方向の移動を指定するために1から9までの整数が1つ入力されます。")
+                logger.info("縦方向の移動を指定するために1から9までの整数が1つ入力されます。")
                 x = random.randint(1, 9)
                 self.shogi_bit[self.gyoku] = '・'
                 self.shogi_bit[9 * (x-1) + self.gyoku % 9] = '玉'
